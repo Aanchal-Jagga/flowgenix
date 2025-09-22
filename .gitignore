@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+.venv/
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Firebase service account (DO NOT push)
+serviceAccountKey.json

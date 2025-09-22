@@ -1,40 +1,19 @@
 # app/main.py
 from fastapi import FastAPI
-from .routes import health
-from firebase import db  # Import Firestore client
+from app.routes.process_endpoint import router as  process_endpoint
+from app.routes.handwritten_routes import router as handwritten_routes
+from firebase_config import db  # Import Firestore client
 from firebase_admin import firestore
+
+from app.routes.auth_routes import router as auth_router
+from app.routes.user_routes import router as user_router
 
 app = FastAPI(title="FlowGenix Backend")
 
-app.include_router(health.router)
-
+app.include_router(auth_router)
+app.include_router(user_router)
+app.include_router(process_endpoint)
+app.include_router(handwritten_routes)
 @app.get("/")
-async def root():
-    return {"message": "FlowGenix Backend is running 🚀"}
-
-
-@app.get("/users/{user_id}")
-def get_user(user_id: str):
-    user_ref = db.collection("users").document(user_id).get()
-    if user_ref.exists:
-        return user_ref.to_dict()
-    return {"error": "User not found"}
-
-
-@app.get("/test-write")
-def write_test():
-    doc_ref = db.collection("users").document("testUser")
-    doc_ref.set({
-        "email": "test@example.com",
-        "name": "Tester",
-        "createdAt": firestore.SERVER_TIMESTAMP
-    })
-    return {"status": "ok"}
-
-
-@app.get("/test-read")
-def read_test():
-    doc_ref = db.collection("users").document("testUser").get()
-    if doc_ref.exists:
-        return doc_ref.to_dict()
-    return {"error": "not found"}
+def root():
+    return {"message": "FlowGenix API Running ✅"}
