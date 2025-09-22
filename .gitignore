@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+.venv/
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Firebase service account (DO NOT push)
+serviceAccountKey.json
+
+# HuggingFace / PyTorch model cache
+.cache/
+*.pt
+*.bin
+*.safetensors
+
+# Any JSON credentials (Firebase, GCP, AWS, etc.)
+flowgenix-beeb3-firebase-adminsdk-fbsvc-174e1fa766.json
+*.json
