@@ -23,3 +23,13 @@ Thumbs.db
 
 # Firebase service account (DO NOT push)
 serviceAccountKey.json
+
+# HuggingFace / PyTorch model cache
+.cache/
+*.pt
+*.bin
+*.safetensors
+
+# Any JSON credentials (Firebase, GCP, AWS, etc.)
+flowgenix-beeb3-firebase-adminsdk-fbsvc-174e1fa766.json
+*.json
