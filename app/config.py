@@ -20,12 +20,16 @@ class Settings(BaseSettings):
     firebase_auth_domain: str
     firebase_messaging_sender_id: str
     firebase_app_id: str
+    # Add Azure Document Intelligence configs
+    azure_endpoint: str | None = None
+    azure_key: str | None = None
 
     # This model_config dictionary tells Pydantic how to behave.
     # `env_file=".env"` explicitly instructs it to load settings from a file named '.env'.
     model_config = SettingsConfigDict(
         env_file=".env",
-        env_file_encoding='utf-8'  # Good practice to specify encoding
+        env_file_encoding='utf-8' , # Good practice to specify encoding
+        extra="ignore"
     )
 
 
