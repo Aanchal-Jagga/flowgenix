@@ -11,7 +11,7 @@ from app.routes.handwritten_routes import router as handwritten_routes
 # from app.routes.auth_routes import router as auth_router
 # from app.routes.user_routes import router as user_router
 from app.routes.math_ocr_endpoint import router as process_router
-from app.routes.symb import router as detect_symbol
+# from app.routes.symb import router as detect_symbol
 app = FastAPI(title="FlowGenix Backend")
 
 # app.include_router(auth_router)
@@ -19,7 +19,7 @@ app = FastAPI(title="FlowGenix Backend")
 app.include_router(process_endpoint)
 app.include_router(handwritten_routes)
 
-app.include_router(detect_symbol, prefix="/symbol", tags=["Symbol Detection"])
+# app.include_router(detect_symbol, prefix="/symbol", tags=["Symbol Detection"])
 
 # app.include_router(math_ocr_endpoint.router)
 
